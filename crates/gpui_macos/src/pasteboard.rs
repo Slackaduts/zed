@@ -272,6 +272,7 @@ impl From<ImageFormat> for UTType {
             ImageFormat::Bmp => Self::bmp(),
             ImageFormat::Svg => Self::svg(),
             ImageFormat::Ico => Self::ico(),
+            ImageFormat::Qoi => Self::png(),
         }
     }
 }

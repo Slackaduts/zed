@@ -1981,6 +1981,8 @@ pub enum ImageFormat {
     Tiff,
     /// .ico
     Ico,
+    /// .qoi
+    Qoi,
 }
 
 impl ImageFormat {
@@ -1995,6 +1997,7 @@ impl ImageFormat {
             ImageFormat::Bmp => "image/bmp",
             ImageFormat::Tiff => "image/tiff",
             ImageFormat::Ico => "image/ico",
+            ImageFormat::Qoi => "image/x-qoi",
         }
     }
 
@@ -2009,6 +2012,7 @@ impl ImageFormat {
             "image/bmp" => Some(Self::Bmp),
             "image/tiff" | "image/tif" => Some(Self::Tiff),
             "image/ico" => Some(Self::Ico),
+            "image/x-qoi" => Some(Self::Qoi),
             _ => None,
         }
     }
@@ -2126,6 +2130,7 @@ impl Image {
             ImageFormat::Bmp => frames_for_image(&self.bytes, image::ImageFormat::Bmp)?,
             ImageFormat::Tiff => frames_for_image(&self.bytes, image::ImageFormat::Tiff)?,
             ImageFormat::Ico => frames_for_image(&self.bytes, image::ImageFormat::Ico)?,
+            ImageFormat::Qoi => frames_for_image(&self.bytes, image::ImageFormat::Qoi)?,
             ImageFormat::Svg => {
                 return svg_renderer
                     .render_single_frame(&self.bytes, 1.0)

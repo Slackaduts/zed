@@ -72,6 +72,7 @@ impl Render for ImageInfo {
                 ImageFormat::Bmp => "BMP",
                 ImageFormat::Ico => "ICO",
                 ImageFormat::Avif => "Avif",
+                ImageFormat::Qoi => "QOI",
                 _ => "Unknown",
             }
             .to_string(),
